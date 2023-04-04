@@ -1,8 +1,10 @@
 import { FlatList, StyleSheet, Text, View } from "react-native";
 import CategoryGridTile from "../components/CategoryGridTile";
-import { CATEGORIES } from "../data/dummy-data";
+// import { CATEGORIES } from "../data/dummy-data";
+import useFetch from "../hook/useFetch";
 
 export default function CategoriesScreen({ navigation }) {
+  const { data: CATEGORIES } = useFetch("categories", {});
   function renderCategoryItem(itemData) {
     function pressHandler() {
       navigation.navigate('MealsOverview', {

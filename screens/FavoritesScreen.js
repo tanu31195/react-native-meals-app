@@ -5,11 +5,16 @@ import { useSelector } from "react-redux";
 import MealsList from "../components/MealsList/MealsList";
 import { FavoritesContext } from "../store/context/favorites-context";
 import { MEALS } from "../data/dummy-data";
+import useFetch from "../hook/useFetch";
 
 export default function FavoritesScreen() {
   // const favoriteMealsContext = useContext(FavoritesContext);
   const favoriteMealsIds = useSelector((state) => state.favoriteMeals.ids);
-  const favoriteMeals = MEALS.filter((meal) =>
+
+  const { data: meals, isLoading, error } = useFetch("meals", {});
+
+  // const favoriteMeals = MEALS.filter((meal) =>
+  const favoriteMeals = meals.filter((meal) =>
     // favoriteMealsContext.ids.includes(meal.id)
     favoriteMealsIds.includes(meal.id)
   );

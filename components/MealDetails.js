@@ -11,10 +11,10 @@ export default function MealDetails({
     <View style={[styles.details, style]}>
       <Text style={[styles.detailItem, textStyle]}>{duration} mins</Text>
       <Text style={[styles.detailItem, textStyle]}>
-        {complexity.toUpperCase()}
+        {complexity?.toUpperCase()}
       </Text>
       <Text style={[styles.detailItem, textStyle]}>
-        {affordability.toUpperCase()}
+        {affordability?.toUpperCase()}
       </Text>
     </View>
   );
